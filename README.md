@@ -53,4 +53,8 @@ Response:
   "total": 280
 }
 ```
+## 📬 Postman Example
+[assets/postman-request.png](https://github.com/danishrahmankpm/PromoEngine/blob/main/assets/Screenshot%202025-07-06%20175553.png)
+## 🧪 Tests
+[assets/tests.png](https://github.com/danishrahmankpm/PromoEngine/blob/main/assets/Screenshot%202025-07-06%20175553.png)
 
