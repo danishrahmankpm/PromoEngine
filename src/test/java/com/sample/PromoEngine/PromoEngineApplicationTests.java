@@ -124,7 +124,19 @@ class PromoEngineApplicationTests {
         int total = engine.calculateTotal(cart);
         assertEquals(50, total);
     }
-	
+	@Test
+    void testNoPromotionApplies() {
+        // 1 A, 1 B, 1 D => 50 + 30 + 15 = 95
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 1),
+            new CartItem(skuMap.get("B"), 1),
+            new CartItem(skuMap.get("D"), 1)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(95, total);
+    }
+
 
 
 }
