@@ -72,7 +72,22 @@ class PromoEngineApplicationTests {
         int total = engine.calculateTotal(cart);
         assertEquals(370, total);
     }
-	
+	@Test
+    void testScenarioC() {
+        // 3 A = 130
+        // 5 B = (2B=45) x2 + 1B=30 = 120
+        // C + D = 30
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 3),
+            new CartItem(skuMap.get("B"), 5),
+            new CartItem(skuMap.get("C"), 1),
+            new CartItem(skuMap.get("D"), 1)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(280, total);
+    }
+
 	@Test
     void testScenarioD() {
         // 2 A = 100
