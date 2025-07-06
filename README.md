@@ -12,7 +12,7 @@ This is a Spring Boot application that implements a promotion engine to calculat
   - Combo promotion 
 - Clean and extensible architecture
 - REST API using `POST` with JSON input
-- Unit tested using JUnit and Spring MockMvc
+- Unit tested using JUnit 
 
 ---
 
