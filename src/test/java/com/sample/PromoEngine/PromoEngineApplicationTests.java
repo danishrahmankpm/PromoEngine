@@ -1,5 +1,7 @@
 package com.sample.PromoEngine;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 import java.util.Map;
 
@@ -7,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.sample.PromoEngine.Model.CartItem;
 import com.sample.PromoEngine.Model.SKU;
 import com.sample.PromoEngine.PromoEngine.ComboPromotion;
 import com.sample.PromoEngine.PromoEngine.Promotion;
@@ -42,5 +45,21 @@ class PromoEngineApplicationTests {
 
         engine = new PromotionEngine(promotions);
     }
+	@Test
+    void testScenarioD() {
+        // 2 A = 100
+        // 5 B = (2B=45) x2 + 1B=30 = 120
+        // 3c + 2D = 30*2+ 20= 80
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 2),
+            new CartItem(skuMap.get("B"), 5),
+            new CartItem(skuMap.get("C"), 3),
+            new CartItem(skuMap.get("D"), 2)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(300, total);
+    }
+
 
 }
