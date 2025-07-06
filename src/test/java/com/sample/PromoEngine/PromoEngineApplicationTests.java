@@ -45,6 +45,34 @@ class PromoEngineApplicationTests {
 
         engine = new PromotionEngine(promotions);
     }
+	
+	@Test
+    void testScenarioA() {
+        // 1 A, 1 B, 1 C => 50 + 30 + 20 = 100
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 1),
+            new CartItem(skuMap.get("B"), 1),
+            new CartItem(skuMap.get("C"), 1)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(100, total);
+    }
+	@Test
+    void testScenarioB() {
+        // 5 A => (3A=130) + (2A=100) = 230
+        // 5 B => (2B=45) x2 + 1B=30 = 120
+        // 1 C = 20
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 5),
+            new CartItem(skuMap.get("B"), 5),
+            new CartItem(skuMap.get("C"), 1)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(370, total);
+    }
+	
 	@Test
     void testScenarioD() {
         // 2 A = 100
