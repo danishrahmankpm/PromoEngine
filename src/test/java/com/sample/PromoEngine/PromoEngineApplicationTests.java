@@ -113,6 +113,18 @@ class PromoEngineApplicationTests {
         int total = engine.calculateTotal(cart);
         assertEquals(260, total);
     }
+	@Test
+    void testOnlyComboPromotion() {
+        // 2 C + 1 D => (1C+1D=30), 1C=20 → 30 + 20 = 50
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("C"), 2),
+            new CartItem(skuMap.get("D"), 1)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(50, total);
+    }
+	
 
 
 }
