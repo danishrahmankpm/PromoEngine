@@ -103,6 +103,16 @@ class PromoEngineApplicationTests {
         int total = engine.calculateTotal(cart);
         assertEquals(300, total);
     }
+	@Test
+    void testOnlyQuantityPromotion() {
+        // 6 A => (3A=130) x2 = 260
+        List<CartItem> cart = List.of(
+            new CartItem(skuMap.get("A"), 6)
+        );
+
+        int total = engine.calculateTotal(cart);
+        assertEquals(260, total);
+    }
 
 
 }
